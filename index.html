@@ -87,7 +87,7 @@
     
     <!-- Section 4 -->
     <h3 id="section4">The problem with obsolete GPUs and e-waste</h3>
-    <p>
+    <p id="section3_InText">
         When GPUs become too old for high-end gaming, academic/scientific purposes or AI, users and data centres may retire them earlier than needed instead of repurposing them. E-waste refers to discarded electronic devices, it poses environmental and health risks due to hazardous toxic materials like mercury, cadmium and lead. When improperly discarded, these non-biodegradable substances cause pollution through open burning, acid leaching (extracting metals by dissolving objects in acid), and dumping. This contaminates groundwater, releases fumes and harms ecosystems and human health. Some of the many health issues include respiratory issues, neurological damage and birth defects. A reliable source states that 62 million tonnes of e-waste were produced globally in 2022, and it is rising annually by 2.6 million tonnes, with projections reaching 82 million tonnes by 2030. This data highlights the rapid increase in e-waste generation and the associated environmental challenges (Baldé et al., 2024). Repurposing and repair can boost e-waste collection and recycling rates from the current global documented level of 22.3% in 2022 to 60% by 2030, avoiding substantial waste volumes through extended product lifespans and resource recovery (DTP Group, 2025).
     </p>
     <img src="electronic waste projection.png" alt="E-waste Projection" width="700">
@@ -96,19 +96,19 @@
     
     <!-- Section 5 -->
     <h3 id="section5">What repurposed GPUs would be used for</h3>
-    <p>
+    <p id="section4_InText">
         Many academic and educational workloads are far less demanding than industry AI models, this means that older GPUs can be useful if utilised correctly. Some realistic uses in a university/college setting could include teaching students about GPU programming, CUDA/OpenCL, or MATLAB/Python without needing brand-new hardware while still having the computing power to effectively run all programs and software. GPU clusters can also be used for smaller research experiments, simulations and background data processing. Not only is it useful for the university/college itself but also for students who may not be able to afford cloud computing or own their own personal high-end GPUs. Some examples of cloud computing are simulations, artificial intelligence and machine learning, rendering and media processing etc.
     </p>
     
     <!-- Section 6 -->
     <h3 id="section6">Positive environmental impact</h3>
-    <p>
+    <p id="section5_InText">
         Manufacturing new GPUs is an energy intensive process which emits a significant amount of carbon emissions. By reusing and recycling old hardware, it is viable to reduce a small portion of the environmental footprint associated with the resource collecting and production processes. In addition, this also reduces the volume of GPUs ending up in a landfill and cuts the risk of toxic materials leaching into the soil and water. Despite all these issues and the desire to reduce e-waste completely, not every GPU can be saved forever. Old or damaged units can't be reused and should be recycled correctly. However, by extending their useful life by even a few years, can make a measurable difference at scale which will positively impact our planet.
     </p>
     
     <!-- Section 7 -->
     <h3 id="section7">Challenges and considerations</h3>
-    <p>
+    <p id="section6_InText">
         Repurposing GPUs comes with technical challenges. Compatibility problems can arise when combining different generations of hardware, including physical form factors, power connectors or even mismatched drivers. Another issue is the energy efficiency of old GPUs; older GPUs might draw more power and operate less efficiently than newer ones, meaning that the negative impacts of energy consumption outweigh the environmental benefits of reuse. Organisational challenges also come into play when thinking about reusing and repurposing old GPUs. Effective reuse means that an individual or organisation needs to manage inventory, test older cards and determine which units remain reliable enough for use. Data centres and laboratory policies may not allow the use of mixed or outdated hardware, favouring standardised, newer equipment for ease of maintenance. Despite many obstacles, carefully designed GPU repurposing holds strong potential to generate lasting educational, environmental and economic benefits. With the correct planning and collaboration, these initiatives can effectively address practical barriers to education and scientific research whilst also contributing to a more sustainable computing environment.
     </p>
     
@@ -193,8 +193,12 @@
     // Calculate word count for each section and accumulate the total
     const IntroductionCount = displayWordCount("section1_InText");
     const section2 = displayWordCount("section2_InText");
+    const section3 = displayWordCount("section3_InText");
+    const section4 = displayWordCount("section4_InText");
+    const section5 = displayWordCount("section5_InText");
+    const section6 = displayWordCount("section6_InText");
     // Calculate the sum of all selected sections
-    const totalWordCount = IntroductionCount + section2;
+    const totalWordCount = IntroductionCount + section2 + section3 + section4 + section5+ section6 +;
     // Display the total word count
     document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
   }
