@@ -129,9 +129,26 @@
 <button onclick="verifyLastUpdatedTime()" style="display: block; margin: 10px auto; padding: 8px 16px;">
     Verify Last Modified Time
 </button>
+
+        <!-- Word Count Section -->
+    <div id="sectionWordCounts" style="margin: 20px; font-family: Arial, sans-serif;">
+        <h3 style="margin-bottom: 10px;">Word Count by Section:</h3>
+        <p id="section1Count"></p>
+        <p id="section2Count"></p>
+        <p id="section3Count"></p>
+        <p id="section4Count"></p>
+        <p id="section5Count"></p>
+        <p id="section6Count"></p>
+        <p id="section7Count"></p>
+        <p id="section8Count"></p>
+        <hr style="margin: 15px 0;">
+        <p id="totalWordCount" style="font-weight: bold;"></p>
+    </div>
 <script>
     async function getLastUpdatedTime() {
         const username = 'mq00233';
+
+        
         const repo = 'FY6938236';
        
         const url = `https://api.github.com/repos/${username}/${repo}/commits`;
