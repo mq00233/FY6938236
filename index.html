@@ -231,16 +231,18 @@
         
         // Loop through all 8 sections
         
+    for (let i = 2; i <= 7; i++) {
             const sectionId = "section" + i;
             const outputId = "section" + i + "Count";
-            const sectionName = sectionNames[i -21];
-        for (let i = 2; i <= 7; i++) {
+            const sectionName = sectionNames[i - 2];
+                    
             // Get word count for this section
             const wordCount = displayWordCount(sectionId);
             totalWords += wordCount;
             
             // Display individual section word count
             document.getElementById(outputId).innerText = sectionName + ": " + wordCount + " words";
+                }
         }
         
         // Display the total word count
