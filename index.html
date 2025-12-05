@@ -174,11 +174,23 @@
   <!-- ////////////////////////////// Word count function ////////////////////////////// -->
   <!-- //////////////////////////////////////////////////////////////////////////////// -->
 <!-- Placeholder for total word count -->
-<p id="totalWordCount"></p>
-<hr>
+<div id="sectionWordCounts" style="margin: 20px; font-family: Arial, sans-serif;">
+    <h3 style="margin-bottom: 10px;">Word Count by Section:</h3>
+    <p id="section1Count"></p>
+    <p id="section2Count"></p>
+    <p id="section3Count"></p>
+    <p id="section4Count"></p>
+    <p id="section5Count"></p>
+    <p id="section6Count"></p>
+    <p id="section7Count"></p>
+    <p id="section8Count"></p>
+    <hr style="margin: 15px 0;">
+    <p id="totalWordCount" style="font-weight: bold;"></p>
+</div>
+
 <script>
   // Function to calculate and display word count for a specified section
-  function displayWordCount(sectionId, outputId) {
+  function displayWordCount(sectionId) {
     // Get the text content from the specified section
     const text = document.getElementById(sectionId).textContent;
     // Split text into words based on spaces and filter out any empty strings
@@ -189,15 +201,39 @@
     return wordCount;
   }
   // Function to calculate and display total word count from selected sections
-  function displayTotalWordCount() {
-    // Calculate word count for each section and accumulate the total
-    const IntroductionCount = displayWordCount("Introduction_InText");
-    const AnalysisCount = displayWordCount("Analysis_InText");
-    // Calculate the sum of all selected sections
-    const totalWordCount = IntroductionCount + AnalysisCount;
-    // Display the total word count
-    document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
-  }
+// Define section names for display
+    const sectionNames = [
+        "Abstract",
+        "Introduction",
+        "What are GPUs and why they matter",
+        "The problem with obsolete GPUs and e-waste",
+        "What repurposed GPUs would be used for",
+        "Positive environmental impact",
+        "Challenges and considerations",
+        "References"
+    ];
+    
+    // Function to calculate and display word count from all sections
+    function displayTotalWordCount() {
+        let totalWords = 0;
+        
+        // Loop through all 8 sections
+        for (let i = 1; i <= 8; i++) {
+            const sectionId = "section" + i;
+            const outputId = "section" + i + "Count";
+            const sectionName = sectionNames[i - 1];
+            
+            // Get word count for this section
+            const wordCount = displayWordCount(sectionId);
+            totalWords += wordCount;
+            
+            // Display individual section word count
+            document.getElementById(outputId).innerText = sectionName + ": " + wordCount + " words";
+        }
+        
+        // Display the total word count
+        document.getElementById("totalWordCount").innerText = "Total word count: " + totalWords + " words";
+    }
   // Run the function for specific sections and display total count when the page loads
   window.onload = displayTotalWordCount;
 </script>
