@@ -166,7 +166,10 @@
         alert("Last modified time has been successfully verified from GitHub API.");
     }
     // Initial load to display the time on page load
-    window.onload = getLastUpdatedTime;
+    window.onload = function() {
+        getLastUpdatedTime();
+        displayTotalWordCount();
+    };
 </script>
 
 
@@ -177,32 +180,59 @@
 <p id="totalWordCount"></p>
 <hr>
 <script>
-  // Function to calculate and display word count for a specified section
-  function displayWordCount(sectionId, outputId) {
-    // Get the text content from the specified section
-    const text = document.getElementById(sectionId).textContent;
-    // Split text into words based on spaces and filter out any empty strings
-    const wordArray = text.trim().split(/\s+/);
-    // Count the words
-    const wordCount = wordArray.length;
-    // Return the word count for summing purposes
-    return wordCount;
-  }
-  // Function to calculate and display total word count from selected sections
-  function displayTotalWordCount() {
-    // Calculate word count for each section and accumulate the total
-    const IntroductionCount = displayWordCount("section1");
-    const AnalysisCount = displayWordCount("Analysis_InText");
-    // Calculate the sum of all selected sections
-    const totalWordCount = IntroductionCount + AnalysisCount;
-    // Display the total word count
-    document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
-  }
-  // Run the function for specific sections and display total count when the page loads
+    // Function to calculate and display word count for a specified section
+    function displayWordCount(sectionId) {
+        // Get the heading element
+        const headingElement = document.getElementById(sectionId);
+        // Get the next sibling element which contains the content
+        const contentElement = headingElement.nextElementSibling;
+        // Get the text content from the content element
+        const text = contentElement ? contentElement.textContent : "";
+        // Split text into words based on spaces and filter out any empty strings
+        const wordArray = text.trim().split(/\s+/);
+        // Count the words
+        const wordCount = wordArray.length;
+        // Return the word count for summing purposes
+        return wordCount;
+    }
+    
+    // Define section names for display
+    const sectionNames = [
+        "Abstract",
+        "Introduction",
+        "What are GPUs and why they matter",
+        "The problem with obsolete GPUs and e-waste",
+        "What repurposed GPUs would be used for",
+        "Positive environmental impact",
+        "Challenges and considerations",
+        "References"
+    ];
+    
+    // Function to calculate and display total word count from all sections
+    function displayTotalWordCount() {
+        let totalWords = 0;
+        
+        // Loop through all 8 sections
+        for (let i = 1; i <= 8; i++) {
+            const sectionId = "section" + i;
+            const outputId = "section" + i + "Count";
+            const sectionName = sectionNames[i - 1];
+            
+            // Get word count for this section
+            const wordCount = displayWordCount(sectionId);
+            totalWords += wordCount;
+            
+            // Display individual section word count
+            document.getElementById(outputId).innerText = sectionName + ": " + wordCount + " words";
+        }
+        
+        // Display the total word count
+        document.getElementById("totalWordCount").innerText = "Total word count: " + totalWords + " words";
+    }  // Run the function for specific sections and display total count when the page loads
   window.onload = displayTotalWordCount;
 </script>
 
     
-</body>
+
 
 </html>
