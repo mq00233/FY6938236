@@ -72,7 +72,7 @@
     
     <!-- Section 2 -->
     <h3 id="section2">Introduction</h3>
-    <p>
+    <p id="section1_InText">
         Electronic waste has become a critical environmental concern, with discarded computer hardware contributing to global waste streams. Of the many components, GPUs have high potential computing power if used correctly. Huang's Law states that the GPU performance more than doubles every two years which would mean after 4-6 years older GPUs would not be able to compete with the newer ones individually. However, when put together in GPU clusters, they can be powerful and effectively leveraged for areas such as academic computing, simulations for scientific/academic purposes or even AI. A GPU cluster is a networked system of multiple GPUs working together to perform computing tasks through parallel processing. Parallel processing is a mode of operation in which a process is split into parts, which are executed simultaneously on different processors attached to the same computer. This allows workload division, allowing the cluster to process tasks that require a large amount of computing power which would otherwise not be possible by a single GPU.
     </p>
     <img src="huangs law.png" alt="Huangs Law" width="700">
@@ -81,7 +81,7 @@
     
     <!-- Section 3 -->
     <h3 id="section3">What are GPUs and why they matter</h3>
-    <p>
+    <p id="section2_InText">
         A GPU is a specialised electronic circuit designed to accelerate the rendering of images and videos, especially 3D graphics. GPUs contain hundred to thousands of smaller cores all able to perform calculations independently, this differs from a CPU which only has a few very powerful cores designed to complete only a handful of tasks at one given time. A GPU can perform mathematical equations at very high speeds and is optimised to handle multiple tasks on large sets of data simultaneously making it effective not only for graphics but also tasks including artificial intelligence and scientific computing. The demand for GPU power has exploded with AI and high-performance computing including gaming, which is becoming increasingly realistic and has increasing demands from consumers to have large open worlds which require immense rendering power. This means that hardware upgrades become more frequent leading to many obsolete GPUs.
     </p>
     
@@ -191,10 +191,10 @@
   // Function to calculate and display total word count from selected sections
   function displayTotalWordCount() {
     // Calculate word count for each section and accumulate the total
-    const IntroductionCount = displayWordCount("#section1_InText");
-    const AnalysisCount = displayWordCount("#section2_InText");
+    const IntroductionCount = displayWordCount("section1_InText");
+    const section2 = displayWordCount("section2_InText");
     // Calculate the sum of all selected sections
-    const totalWordCount = IntroductionCount + AnalysisCount;
+    const totalWordCount = IntroductionCount + section2;
     // Display the total word count
     document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
   }
